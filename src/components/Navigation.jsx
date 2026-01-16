@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Sparkles, Code2, User, Mail } from 'lucide-react';
-import '../styles/Navigation.css';
+import '../styles/navigation.css';
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
