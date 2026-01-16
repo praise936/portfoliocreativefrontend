@@ -23,7 +23,7 @@ const Navigation = () => {
                         <div className="logo-dot dot-2"></div>
                         <div className="logo-dot dot-3"></div>
                     </div>
-                    <span className="logo-text">PORTFOLIO<span className="logo-accent">?</span></span>
+                    <span className="logo-text">PETER PRAISE<span className="logo-accent">?</span></span>
                 </div>
 
                 <div className="nav-links">

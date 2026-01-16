@@ -2,7 +2,8 @@
 import { useState } from 'react';
 import { Send, Mail, MapPin, Phone, Linkedin, Github, Twitter, Sparkles } from 'lucide-react';
 import '../styles/Contact.css';
-
+import axios from 'axios';
+const API_BASE_URL = import.meta.env.VITE_API_URL
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -13,6 +14,7 @@ const Contact = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showConfetti, setShowConfetti] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState('');
 
     const handleChange = (e) => {
         setFormData({
@@ -21,27 +23,39 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitMessage('');
 
-        // Simulate API call
-        setTimeout(() => {
+        try {
+            console.log("API_BASE_URL:", API_BASE_URL);
+            console.log("Full URL would be:", `${API_BASE_URL}/messages/`);
+            const response = await axios.post(`${API_BASE_URL}/messages/`, formData);
+
             setIsSubmitting(false);
             setShowConfetti(true);
+            setSubmitMessage('Message sent successfully! Looking forward to our unconventional conversation.');
             setFormData({ name: '', email: '', subject: '', message: '' });
 
             // Hide confetti after 3 seconds
             setTimeout(() => setShowConfetti(false), 3000);
-        }, 1500);
+        } catch (error) {
+            setIsSubmitting(false);
+            setSubmitMessage(
+                error.response?.data?.message ||
+                'Something went wrong. Please try again or email me directly at hello@unconventional.design'
+            );
+            console.error('Error sending message:', error);
+        }
     };
 
     const contactInfo = [
         {
             icon: <Mail size={24} />,
             title: 'EMAIL',
-            value: 'hello@unconventional.design',
-            link: 'mailto:hello@unconventional.design'
+            value: 'peterpraise259@gmail.com',
+            link: 'mailto:peterpraise259@gmail.com'
         },
         {
             icon: <MapPin size={24} />,
@@ -52,8 +66,8 @@ const Contact = () => {
         {
             icon: <Phone size={24} />,
             title: 'PHONE',
-            value: '+1 (555) 808-UNUSUAL',
-            link: 'tel:+15558086878'
+            value: '+ (254) TAP-HERE',
+            link: 'tel:+254743592437'
         }
     ];
 
@@ -61,20 +75,20 @@ const Contact = () => {
         {
             icon: <Github size={24} />,
             name: 'GitHub',
-            link: 'https://github.com',
+            link: 'https://github.com/praise936',
             color: '#6e5494'
         },
         {
             icon: <Linkedin size={24} />,
             name: 'LinkedIn',
-            link: 'https://linkedin.com',
+            link: 'https://www.linkedin.com/in/peter-praise-717437372/',
             color: '#0077b5'
         },
         {
-            icon: <Twitter size={24} />,
-            name: 'Twitter',
-            link: 'https://twitter.com',
-            color: '#1da1f2'
+            icon: <Phone size={24} />, // Using Phone icon for WhatsApp, or you can use MessageSquare
+            name: 'WhatsApp',
+            link: 'https://wa.me/254743592437?text=Hello%20Peter%20Praise%20Creative%2C%20I%20am%20reaching%20you%20on%20WhatsApp%20because...',
+            color: '#25D366' 
         }
     ];
 

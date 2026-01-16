@@ -52,7 +52,40 @@
     border-radius: 20px;
     padding: 2rem;
 }
+.image-card {
+    padding: 0;
+    overflow: hidden;
+}
 
+.sidebar-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.image-caption {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid var(--glass-border);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 30px rgba(var(--primary-rgb, 0, 255, 255), 0.3);
+    transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(var(--primary-rgb, 0, 255, 255), 0.5);
+}
 .bio-card {
     position: relative;
     overflow: hidden;

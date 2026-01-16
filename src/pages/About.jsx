@@ -2,7 +2,8 @@
 import { useState } from 'react';
 import { Award, Briefcase, GraduationCap, MapPin, Calendar, Sparkles } from 'lucide-react';
 import '../styles/About.css';
-
+import profile from '../assets/book-image1.png'
+import myabtimage from '../assets/book-image6.png'
 const About = () => {
     const [activeTimeline, setActiveTimeline] = useState('work');
 
@@ -69,12 +70,14 @@ const About = () => {
                         <div className="about-card bio-card">
                             <div className="bio-header">
                                 <div className="bio-avatar">
-                                    <div className="avatar-placeholder">
-                                        <Sparkles size={48} />
-                                    </div>
+                                    <img
+                                        src={profile} // or import if using src
+                                        alt="Peter Praise Creative"
+                                        className="profile-image"
+                                    />
                                 </div>
                                 <div className="bio-info">
-                                    <h2 className="bio-name">ALEX CREATIVE</h2>
+                                    <h2 className="bio-name">PETER PRAISE CREATIVE</h2>
                                     <div className="bio-tags">
                                         <span className="bio-tag">
                                             <MapPin size={16} />
@@ -156,6 +159,16 @@ const About = () => {
                     </div>
 
                     <div className="about-sidebar">
+                        <div className="about-card image-card">
+                            <img
+                                src={myabtimage}
+                                alt="Creative workspace"
+                                className="sidebar-image"
+                            />
+                            <div className="image-caption">
+                                <p>"Where the magic (and occasional chaos) happens"</p>
+                            </div>
+                        </div>
                         <div className="about-card facts-card">
                             <h3 className="card-title">
                                 <Award size={24} />
