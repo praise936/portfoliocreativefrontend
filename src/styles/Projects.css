@@ -2,6 +2,7 @@
 .projects-page {
     min-height: 100vh;
     padding-top: 100px;
+    margin-top: 20px;
 }
 
 .projects-container {

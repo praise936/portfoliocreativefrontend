@@ -105,12 +105,15 @@ const Home = () => {
                         </p>
 
                         <div className="hero-buttons">
-                            <button onClick={() => navigate('/projects')} className="btn-primary">
-                                EXPLORE THE UNUSUAL
+                            <button onClick={() => navigate('/contact')} className="btn-primary">
+                                CONTACT ME
                                 <ArrowRight size={20} />
                             </button>
-                            <button className="btn-secondary">
-                                QUESTION EVERYTHING
+                            <button onClick={() => navigate('/projects')} className="btn-secondary">
+                                SEE PROJECTS
+                            </button>
+                            <button onClick={() => navigate('/about')} className="btn-secondary">
+                                SEE ABOUT
                             </button>
                         </div>
                     </div>
